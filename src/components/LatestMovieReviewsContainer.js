@@ -13,19 +13,21 @@ class LatestMovieReviewsContainer extends React.Component {
     super()
  
     this.state = {
-        reviews: []
+        reviews:[]
     };
   }
  
   componentDidMount() {
     fetch(URL)
       .then(response => response.json())
-      .then(reviewsData => this.setState({ reviews: reviewsData.result }))
+      .then(data => this.setState({ reviews: data.result }))
   }
  
   render() {
     return (
-    <div className="latest-movie-reviews"><MovieReviews reviews={this.state.reviews} /></div>)
+    <div className="latest-movie-reviews">
+    <MovieReviews reviews={this.state.reviews}/>
+    </div>)
   }
 }
  
